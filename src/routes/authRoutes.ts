@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { AuthController } from '../controllers/AuthController';
 import { celebrate, Joi, Segments } from 'celebrate';
+import { authMiddleware } from '../middleware/authMiddleware';
 
 const router = Router();
 const authController = new AuthController();
@@ -23,6 +24,6 @@ router.get('/health', (_req, res) => {
   res.status(200).json({ status: 'OK' });
 });
 
-router.get('/profile', authController.getProfile);
+router.get('/profile', authMiddleware, authController.getProfile);
 
 export default router;

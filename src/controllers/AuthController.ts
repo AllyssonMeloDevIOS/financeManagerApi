@@ -12,6 +12,7 @@ export class AuthController {
         this.login = this.login.bind(this);
         this.listUsers = this.listUsers.bind(this);
         this.refreshToken = this.refreshToken.bind(this);
+        this.getProfile = this.getProfile.bind(this);
   }
 
   async register(req: Request, res: Response) {
@@ -154,8 +155,20 @@ export class AuthController {
       }
     }
 async getProfile(req: Request, res: Response) {
-  const user = await this.userService.getUserById(req.user.id);
-  return res.json(user);
+    try {
+        const user = await this.userService.getUserById(req.user.id);
+
+        if (!user) {
+            return res.status(404).json({ error: 'Usuário não encontrado' });
+
+            }
+        return res.json(user);
+        } catch (error) {
+            console.error('[PROFILE ERROR]', error);
+            return res.status(500).json({ error: 'Erro ao carregar perfil' })
+
+            }
+
 }
 
 
