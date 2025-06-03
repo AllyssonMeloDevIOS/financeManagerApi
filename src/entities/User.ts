@@ -1,29 +1,43 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  OneToMany
+} from 'typeorm';
 import { IsNotEmpty, IsEmail, MinLength, MaxLength } from 'class-validator';
+import { Transaction } from './Transaction';
+import { Category } from './Category';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ length: 100 })
-  @IsNotEmpty({ message: 'O nome é obrigatório' })
-  @MaxLength(100, { message: 'O nome deve ter no máximo 100 caracteres' })
-  name: string;
+  @IsNotEmpty()
+  @MaxLength(100)
+  name!: string;
 
   @Column({ length: 255, unique: true })
-  @IsNotEmpty({ message: 'O email é obrigatório' })
-  @IsEmail({}, { message: 'Email inválido' })
-  email: string;
+  @IsNotEmpty()
+  @IsEmail()
+  email!: string;
 
   @Column({ select: false })
-  @IsNotEmpty({ message: 'A senha é obrigatória' })
-  @MinLength(6, { message: 'A senha deve ter no mínimo 6 caracteres' })
-  password: string;
+  @IsNotEmpty()
+  @MinLength(6)
+  password!: string;
+
+  @OneToMany(() => Transaction, transaction => transaction.user)
+  transactions!: Transaction[];
+
+  @OneToMany(() => Category, category => category.user)
+  categories!: Category[];
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date;
+  createdAt!: Date;
 
   @CreateDateColumn({ name: 'updated_at' })
-  updatedAt: Date;
+  updatedAt!: Date;
 }

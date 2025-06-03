@@ -6,6 +6,10 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import authRoutes from './routes/authRoutes';
+import transactionRoutes from './routes/transactionRoutes';
+import categoryRoutes from './routes/categoryRoutes';
+
+
 
 class Server {
   private app: express.Application;
@@ -30,6 +34,9 @@ class Server {
 
   private routes(): void {
     this.app.use('/api/auth', authRoutes);
+    this.app.use('/api/transactions', transactionRoutes);
+    this.app.use('/api/categories', categoryRoutes);
+
 
     this.app.get('/', (_req, res) => {
       res.status(200).json({

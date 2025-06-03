@@ -17,9 +17,12 @@ export function authMiddleware(req: Request, res: Response, next: NextFunction) 
 
   try {
     const decoded = jwt.verify(token, authConfig.secret) as JwtPayload;
-    req.user = { id: decoded.id }; // adiciona ao request
+    console.log('[AUTH] Token OK. User ID extraído:', decoded.id);
+
+    req.user = { id: decoded.id };
     next();
   } catch (error) {
+    console.error('[AUTH ERROR]', error);
     return res.status(401).json({ error: 'Token inválido ou expirado' });
   }
 }
