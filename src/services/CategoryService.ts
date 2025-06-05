@@ -16,15 +16,31 @@ export class CategoryService {
       user: { id: userId }
     });
 
-    await this.categoryRepository.save(category);
+    const savedCategory = await this.categoryRepository.save(category);
 
-    return category;
+    // Monta um objeto customizado para a resposta:
+    return {
+      categoryId: savedCategory.id,
+      name: savedCategory.name,
+      createdAt: savedCategory.createdAt,
+      updatedAt: savedCategory.updatedAt,
+      userId: savedCategory.user.id,
+    };
   }
 
   async listCategories(userId: string) {
-    return this.categoryRepository.find({
+    const categories = await this.categoryRepository.find({
       where: { user: { id: userId } },
       order: { name: 'ASC' }
     });
+
+    // Opcional: montar uma lista customizada para clareza também
+    return categories.map(cat => ({
+      categoryId: cat.id,
+      name: cat.name,
+      createdAt: cat.createdAt,
+      updatedAt: cat.updatedAt,
+      userId: cat.user.id,
+    }));
   }
 }

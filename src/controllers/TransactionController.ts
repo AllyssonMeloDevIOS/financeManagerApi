@@ -11,10 +11,7 @@ export class TransactionController {
 
   async create(req: Request, res: Response) {
     try {
-      // 1. Converte o body para a instância do DTO
       const input = plainToInstance(CreateTransactionDTO, req.body);
-
-      // 2. Valida o DTO
       const errors = await validate(input);
 
       if (errors.length > 0) {
@@ -22,14 +19,11 @@ export class TransactionController {
         return res.status(400).json({ errors: errorMessages });
       }
 
-      // 3. Pega o ID do usuário logado (vem do middleware de autenticação)
       const userId = req.user?.id;
-
       if (!userId) {
         return res.status(401).json({ error: 'Usuário não autenticado' });
       }
 
-      // 4. Cria a transação
       const transaction = await this.transactionService.createTransaction(input, userId);
 
       return res.status(201).json(transaction);
