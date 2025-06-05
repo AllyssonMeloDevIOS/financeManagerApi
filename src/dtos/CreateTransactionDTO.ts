@@ -17,7 +17,7 @@ export class CreateTransactionDTO {
     type: 'receita' | 'despesa';
 
     @IsUUID('4', { message: 'ID da categoria inválido'})
-    categoryID: string;
+    categoryId: string;
 
     @IsDateString({}, {message: 'A data da transação é inválida'})
     date: string;

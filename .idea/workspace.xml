@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7fd4680b-e4cd-4859-b617-a5ac8d69e4eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/1718651234567-InitialSchema.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/1748918689900-AddCategoryTimestamps.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/CreateTransactionDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/CreateTransactionDTO.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
