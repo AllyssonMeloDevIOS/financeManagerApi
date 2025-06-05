@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class AddCategoryTimestamps1748918689900 implements MigrationInterface {
-    name = 'AddCategoryTimestamps1748918689900'
+export class AddTimestampsAndFixRelations1749079646378 implements MigrationInterface {
+    name = 'AddTimestampsAndFixRelations1749079646378'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`ALTER TABLE "category" DROP CONSTRAINT "category_user_id_fkey"`);
