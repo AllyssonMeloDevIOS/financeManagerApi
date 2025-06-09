@@ -8,6 +8,7 @@ import helmet from 'helmet';
 import authRoutes from './routes/authRoutes';
 import transactionRoutes from './routes/transactionRoutes';
 import categoryRoutes from './routes/categoryRoutes';
+import dashboardRoutes from './routes/dashboardRoutes';
 
 
 
@@ -36,6 +37,7 @@ class Server {
     this.app.use('/api/auth', authRoutes);
     this.app.use('/api/transactions', transactionRoutes);
     this.app.use('/api/categories', categoryRoutes);
+    this.app.use('/api/dashboard', dashboardRoutes);
 
 
     this.app.get('/', (_req, res) => {
