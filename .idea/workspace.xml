@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fd4680b-e4cd-4859-b617-a5ac8d69e4eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/DashboardController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/dashboardRoutes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/DashboardService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/CategoryController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/CategoryController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/categoryRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/categoryRoutes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +30,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="apiFeedback" />
+        <entry key="$PROJECT_DIR$" value="remainderOfOperations" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,7 +52,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dashboardFinance"
+    "git-widget-placeholder": "remainderOfOperations"
   }
 }]]></component>
   <component name="RecentsManager">
