@@ -117,4 +117,21 @@ export class UserService {
       select: ['id', 'name', 'email', 'createdAt']
     });
   }
+
+  async updateUser(id: string, data: Partial<User>) {
+    const repo = AppDataSource.getRepository(User);
+    const user = await repo.findOneBy({ id });
+    if (!user) throw new Error('Usuário não encontrado');
+
+    Object.assign(user, data);
+    return await repo.save(user);
+  }
+
+  async deleteUser(id: string) {
+    const repo = AppDataSource.getRepository(User);
+    const result = await repo.delete(id);
+    if (result.affected === 0) throw new Error('Usuário não encontrado');
+  }
+
+
 }

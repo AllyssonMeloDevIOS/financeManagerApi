@@ -33,8 +33,7 @@ export class CategoryController {
     const categories = await this.categoryService.listCategories(userId);
     return res.json(categories);
   }
-
-static async update(req: Request, res: Response) {
+ async update(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const { name } = req.body;
@@ -46,8 +45,7 @@ static async update(req: Request, res: Response) {
     return res.status(500).json({ error: 'Erro ao atualizar categoria' });
   }
 }
-
-static async delete(req: Request, res: Response) {
+ async delete(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const userId = req.user.id;

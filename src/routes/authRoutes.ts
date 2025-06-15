@@ -25,5 +25,8 @@ router.get('/health', (_req, res) => {
 });
 
 router.get('/profile', authMiddleware, authController.getProfile);
+router.put('/:id', authMiddleware, authController.update);
+router.delete('/:id', authMiddleware, authController.delete);
+
 
 export default router;

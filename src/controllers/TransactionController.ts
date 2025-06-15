@@ -41,4 +41,30 @@ export class TransactionController {
       });
     }
   }
+
+  async update(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const userId = req.user.id;
+      const data = req.body;
+
+      const updated = await TransactionService.updateTransaction(id, userId, data);
+      return res.json(updated);
+    } catch (err) {
+      return res.status(500).json({ error: 'Erro ao atualizar transação' });
+    }
+  }
+
+  async delete(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const userId = req.user.id;
+
+      await TransactionService.deleteTransaction(id, userId);
+      return res.status(204).send();
+    } catch (err) {
+      return res.status(500).json({ error: 'Erro ao deletar transação' });
+    }
+  }
+
 }

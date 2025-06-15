@@ -27,4 +27,22 @@ export class CategoryService {
       order: { name: 'ASC' }
     });
   }
-}
+
+  async updateCategory(id: string, userId: string, name: string) {
+
+     const repo = AppDataSource.getRepository(Category);
+       const category = await repo.findOne({ where: { id, user: { id: userId } } });
+
+       if (!category) throw new Error('Categoria não encontrada');
+       category.name = name;
+       return await repo.save(category);
+     }
+
+     async deleteCategory(id: string, userId: string) {
+       const repo = AppDataSource.getRepository(Category);
+       const result = await repo.delete({ id, user: { id: userId } });
+
+       if (result.affected === 0) throw new Error('Categoria não encontrada ou não pertence ao usuário');
+     }
+
+      }

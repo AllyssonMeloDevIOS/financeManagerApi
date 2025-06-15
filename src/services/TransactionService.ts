@@ -40,4 +40,23 @@ export class TransactionService {
 
     return transaction;
   }
+
+  async updateTransaction(id: string, userId: string, data: Partial<Transaction>) {
+    const repo = AppDataSource.getRepository(Transaction);
+    const transaction = await repo.findOne({ where: { id, user: { id: userId } } });
+
+    if (!transaction) throw new Error('Transação não encontrada');
+
+    Object.assign(transaction, data);
+    return await repo.save(transaction);
+  }
+
+  async deleteTransaction(id: string, userId: string) {
+    const repo = AppDataSource.getRepository(Transaction);
+    const result = await repo.delete({ id, user: { id: userId } });
+
+    if (result.affected === 0) throw new Error('Transação não encontrada ou não pertence ao usuário');
+  }
+
+
 }

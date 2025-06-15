@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7fd4680b-e4cd-4859-b617-a5ac8d69e4eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AuthController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/CategoryController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/CategoryController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/categoryRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/categoryRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/TransactionController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/TransactionController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/authRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/authRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/transactionRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/transactionRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CategoryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/TransactionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TransactionService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserServiceFixed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserServiceFixed.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +53,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "remainderOfOperations"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;remainderOfOperations&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
