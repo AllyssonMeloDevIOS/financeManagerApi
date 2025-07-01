@@ -33,4 +33,28 @@ export class CategoryController {
     const categories = await this.categoryService.listCategories(userId);
     return res.json(categories);
   }
+ async update(req: Request, res: Response) {
+  try {
+    const { id } = req.params;
+    const { name } = req.body;
+    const userId = req.user.id;
+
+    const updated = await CategoryService.updateCategory(id, userId, name);
+    return res.json(updated);
+  } catch (err) {
+    return res.status(500).json({ error: 'Erro ao atualizar categoria' });
+  }
+}
+ async delete(req: Request, res: Response) {
+  try {
+    const { id } = req.params;
+    const userId = req.user.id;
+
+    await CategoryService.deleteCategory(id, userId);
+    return res.status(204).send();
+  } catch (err) {
+    return res.status(500).json({ error: 'Erro ao deletar categoria' });
+  }
+}
+
 }

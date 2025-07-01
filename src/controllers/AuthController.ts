@@ -171,5 +171,34 @@ async getProfile(req: Request, res: Response) {
 
 }
 
+async update(req: Request, res: Response) {
+  try {
+    const { name, email, password } = req.body;
+
+    const user = await this.userService.updateUser(req.user.id, { name, email, password });
+
+    return res.json({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      updatedAt: user.updatedAt
+    });
+  } catch (error: any) {
+    console.error('[UPDATE USER ERROR]', error);
+    return res.status(500).json({ error: 'Erro ao atualizar o usuário' });
+  }
+}
+
+async delete(req: Request, res: Response) {
+  try {
+    await this.userService.deleteUser(req.user.id);
+    return res.status(204).send();
+  } catch (error: any) {
+    console.error('[DELETE USER ERROR]', error);
+    return res.status(500).json({ error: 'Erro ao deletar o usuário' });
+  }
+}
+
+
 
 }
