@@ -92,24 +92,20 @@ export class UserService {
   }
 
   generateToken(user: { id: string }) {
-      // Forçando o tipo para string diretamente no jwt.sign
-      const secretKey: string = authConfig.secret;
-      return jwt.sign(
-        { id: user.id },
-        secretKey, // Use a variável tipada como string
-        { expiresIn: authConfig.expiresIn }
-      );
-    }
+    return jwt.sign(
+      { id: user.id },
+      authConfig.secret,
+      { expiresIn: authConfig.expiresIn }
+    );
+  }
 
   generateRefreshToken(user: { id: string }) {
-      // Forçando o tipo para string diretamente no jwt.sign
-      const refreshSecretKey: string = authConfig.refreshSecret;
-      return jwt.sign(
-        { id: user.id },
-        refreshSecretKey, // Use a variável tipada como string
-        { expiresIn: authConfig.refreshExpiresIn }
-      );
-    }
+    return jwt.sign(
+      { id: user.id },
+      authConfig.refreshSecret,
+      { expiresIn: authConfig.refreshExpiresIn }
+    );
+  }
 
   verifyRefreshToken(token: string) {
       // Forçando o tipo para string diretamente no jwt.verify
