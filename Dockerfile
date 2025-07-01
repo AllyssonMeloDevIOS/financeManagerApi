@@ -6,6 +6,9 @@ FROM node:18-alpine
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
 
+# ✅ Instala git para evitar erro de ENOENT com dependências ocultas
+RUN apk add --no-cache git
+
 # Copia os arquivos package.json e package-lock.json para instalar as dependências
 COPY package*.json ./
 
@@ -23,4 +26,6 @@ EXPOSE 3000
 
 # Comando para rodar a aplicação quando o container iniciar
 # Usaremos 'npm run start' que configuraremos no package.json
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
+#CMD ["npm", "run", "start"]
+#CMD ["sh", "-c", "npm run migration:run && node dist/index.js"]
