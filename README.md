@@ -1,7 +1,6 @@
-# Finance Manager API
+# 💰 Finance Manager API
 
-API RESTful para gerenciamento financeiro com autenticação via JWT, desenvolvida com TypeScript, Express, PostgreSQL e TypeORM.
-
+API RESTful para gerenciamento financeiro pessoal com autenticação via JWT. Desenvolvida em TypeScript, Express e PostgreSQL, utilizando o ORM TypeORM.
 ---
 
 ## 🚀 Funcionalidades já implementadas
@@ -28,6 +27,11 @@ API RESTful para gerenciamento financeiro com autenticação via JWT, desenvolvi
 
 ---
 
+## ⚙️ Requisitos
+- Node.Js 18 ou Superior
+- PostgreSQL
+- Git
+
 ## 🛠️ Como rodar o projeto localmente
 
 ### 1. Clone o repositório
@@ -52,6 +56,8 @@ JWT_SECRET=sua-chave-jwt
 JWT_EXPIRES_IN=1d
 JWT_REFRESH_SECRET=sua-chave-refresh
 JWT_REFRESH_EXPIRES_IN=7d
+
+ 💡 Gere chaves seguras com: ->>> node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 
 ⚠️ Certifique-se de que o PostgreSQL está rodando e que o banco foi criado.
 
@@ -88,6 +94,11 @@ PostgreSQL 13+
 
 Scripts úteis:
 
-npm run dev        # Inicia a API em modo de desenvolvimento
-npm run typeorm    # Acesso a comandos do TypeORM com ts-node
+npm run dev                # Inicia a API em modo de desenvolvimento
+npm run typeorm            # Acesso a comandos do TypeORM com ts-node
+npm run migration:generate # npm run migration:generate
+npm run migration:run      # Executa todas as migrations pendentes
+npm run build              # Compila o projeto TypeScript
 
+🧐 Contribuindo
+Pull requests são bem-vindos! Se quiser sugerir melhorias, abra uma issue ou envie um PR. 💡
