@@ -6,6 +6,7 @@ interface JwtPayload {
   id: string;
 }
 
+
 export function authMiddleware(req: Request, res: Response, next: NextFunction) {
   const authHeader = req.headers.authorization;
 
@@ -16,12 +17,12 @@ export function authMiddleware(req: Request, res: Response, next: NextFunction) 
   const [, token] = authHeader.split(' ');
 
   try {
-    const decoded = jwt.verify(token, authConfig.secret) as JwtPayload;
+    const decoded = jwt.verify(token, authConfig.secret as string) as JwtPayload;
     console.log('[AUTH] Token OK. User ID extraído:', decoded.id);
 
     req.user = { id: decoded.id };
     next();
-  } catch (error) {
+  } catch (error: any) {
     console.error('[AUTH ERROR]', error);
     return res.status(401).json({ error: 'Token inválido ou expirado' });
   }

@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "typeorm-ts-node-commonjs migration:generate -p src/database/migrations/CreateAllTables -d src/database/data-source.ts",
-    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/database/data-source.ts",
-    "build": "tsc"
+    "migration:generate": "npx -r dotenv/config typeorm-ts-node-commonjs migration:generate src/database/migrations/CreateAllTables -d src/database/data-source.ts",
+    "migration:run": "npx -r dotenv/config typeorm-ts-node-commonjs migration:run -d src/database/data-source.ts",
+    "build": "tsc",
+    "start": "npm run build && npm run migration:run && node dist/index.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.18",

@@ -92,24 +92,30 @@ export class UserService {
   }
 
   generateToken(user: { id: string }) {
-    return jwt.sign(
-      { id: user.id },
-      authConfig.secret,
-      { expiresIn: authConfig.expiresIn }
-    );
-  }
+      // Forçando o tipo para string diretamente no jwt.sign
+      const secretKey: string = authConfig.secret;
+      return jwt.sign(
+        { id: user.id },
+        secretKey, // Use a variável tipada como string
+        { expiresIn: authConfig.expiresIn }
+      );
+    }
 
   generateRefreshToken(user: { id: string }) {
-    return jwt.sign(
-      { id: user.id },
-      authConfig.refreshSecret,
-      { expiresIn: authConfig.refreshExpiresIn }
-    );
-  }
+      // Forçando o tipo para string diretamente no jwt.sign
+      const refreshSecretKey: string = authConfig.refreshSecret;
+      return jwt.sign(
+        { id: user.id },
+        refreshSecretKey, // Use a variável tipada como string
+        { expiresIn: authConfig.refreshExpiresIn }
+      );
+    }
 
   verifyRefreshToken(token: string) {
-    return jwt.verify(token, authConfig.refreshSecret) as { id: string };
-  }
+      // Forçando o tipo para string diretamente no jwt.verify
+      const refreshSecretKey: string = authConfig.refreshSecret;
+      return jwt.verify(token, refreshSecretKey) as { id: string };
+    }
 
   async getUserById(id: string) {
     return this.userRepository.findOne({

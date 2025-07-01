@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fd4680b-e4cd-4859-b617-a5ac8d69e4eb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_06_25,_21_33_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_06_25__21_33__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1749079646378-AddTimestampsAndFixRelations.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1749080018623-NomeDaMigration.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1749080253785-InitialSchema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/@types/express/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/@types/express/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AuthController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/CategoryController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/CategoryController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/TransactionController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/TransactionController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/data-source.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/data-source.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/CreateCategoryDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/CreateCategoryDTO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/CreateTransactionDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/CreateTransactionDTO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/LoginDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/LoginDTO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/authMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/authMiddleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserServiceFixed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +78,8 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;remainderOfOperations&quot;
+    &quot;git-widget-placeholder&quot;: &quot;Docker&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.and.region&quot;
   }
 }</component>
   <component name="RecentsManager">

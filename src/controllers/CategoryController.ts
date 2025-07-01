@@ -8,6 +8,8 @@ export class CategoryController {
   constructor(private categoryService = new CategoryService()) {
     this.create = this.create.bind(this);
     this.list = this.list.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   async create(req: Request, res: Response) {
@@ -37,22 +39,22 @@ export class CategoryController {
   try {
     const { id } = req.params;
     const { name } = req.body;
-    const userId = req.user.id;
+    const userId = req.user!.id;
 
-    const updated = await CategoryService.updateCategory(id, userId, name);
+    const updated = await this.categoryService.updateCategory(id, userId, name);
     return res.json(updated);
-  } catch (err) {
-    return res.status(500).json({ error: 'Erro ao atualizar categoria' });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'Erro ao atualizar categoria', details: err.message });
   }
 }
  async delete(req: Request, res: Response) {
   try {
     const { id } = req.params;
-    const userId = req.user.id;
+    const userId = req.user!.id;
 
-    await CategoryService.deleteCategory(id, userId);
+    await this.categoryService.deleteCategory(id, userId);
     return res.status(204).send();
-  } catch (err) {
+  } catch (err: any) {
     return res.status(500).json({ error: 'Erro ao deletar categoria' });
   }
 }
