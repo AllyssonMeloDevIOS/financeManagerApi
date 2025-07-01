@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fd4680b-e4cd-4859-b617-a5ac8d69e4eb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_06_25,_21_33_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_06_25__21_33__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AuthController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/CategoryController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/CategoryController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/TransactionController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/TransactionController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/authRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/authRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/transactionRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/transactionRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/CategoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CategoryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TransactionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TransactionService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/UserServiceFixed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserServiceFixed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1749079646378-AddTimestampsAndFixRelations.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1749080018623-NomeDaMigration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1749080253785-InitialSchema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +39,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AllyssonMeloDevIOS&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AllyssonMeloDevIOS/financeManagerApi.git&quot;,
+    &quot;accountId&quot;: &quot;a203f1c4-5e0d-4137-95bf-be20f4e24396&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/node_modules/@types/node/assert/strict.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package-lock.json" root0="FORCE_HIGHLIGHTING" />
