@@ -14,7 +14,7 @@ const baseDbConfig = {
   synchronize: false, // Em produção, geralmente false. Você roda migrations.
   logging: process.env.NODE_ENV === 'development', // Loga queries em dev
   entities: [User, Category, Transaction],
-  migrations: ['src/database/migrations/*.ts'],
+  migrations: [__dirname + '/migrations/*.js'],
 };
 
 // Objeto de configuração para o AppDataSource

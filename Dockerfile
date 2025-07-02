@@ -1,5 +1,3 @@
-# Dockerfile (na raiz do seu projeto)
-
 # Usa a imagem oficial do Node.js como base (versão LTS Alpine é leve)
 FROM node:18-alpine
 
@@ -21,11 +19,12 @@ COPY . .
 # Compila o TypeScript para JavaScript
 RUN npm run build
 
-# Expõe a porta que sua aplicação Node.js usa internamente (do seu index.ts)
+# Copia e dá permissão ao script de entrada
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
+# Expõe a porta da API
 EXPOSE 3000
 
-# Comando para rodar a aplicação quando o container iniciar
-# Usaremos 'npm run start' que configuraremos no package.json
-CMD ["npm", "start"]
-#CMD ["npm", "run", "start"]
-#CMD ["sh", "-c", "npm run migration:run && node dist/index.js"]
+# Usa o script de entrada
+CMD ["./entrypoint.sh"]
