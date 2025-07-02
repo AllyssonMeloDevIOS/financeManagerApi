@@ -4,6 +4,7 @@ import { User } from '../entities/User';
 import { Category } from '../entities/Category';
 import { Transaction } from '../entities/Transaction';
 import dotenv from 'dotenv';
+import path from 'path';
 import 'dotenv/config';
 
 dotenv.config(); // Carrega as variáveis do .env
@@ -14,7 +15,8 @@ const baseDbConfig = {
   synchronize: false, // Em produção, geralmente false. Você roda migrations.
   logging: process.env.NODE_ENV === 'development', // Loga queries em dev
   entities: [User, Category, Transaction],
-  migrations: [__dirname + '/migrations/*.js'],
+  migrations: [path.join(__dirname, 'migrations', '*.js')],
+  migrationsTableName: 'migrations'
 };
 
 // Objeto de configuração para o AppDataSource

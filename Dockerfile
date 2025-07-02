@@ -27,4 +27,4 @@ RUN chmod +x entrypoint.sh
 EXPOSE 3000
 
 # Usa o script de entrada
-CMD ["./entrypoint.sh"]
+CMD ["sh", "./entrypoint.sh"]
