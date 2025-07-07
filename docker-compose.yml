@@ -39,7 +39,7 @@ services:
       dockerfile: Dockerfile
     container_name: finance_api
     restart: always
-    command: ./entrypoint.sh # executa o script que compila, roda migrations e inicia o servidor
+    command: /usr/local/bin/entrypoint.sh
     env_file:
       - .env
     ports:
@@ -48,9 +48,9 @@ services:
       - postgres
     networks:
       - finance-network
-    volumes:
-      - .:/app
-      - /app/node_modules
+    # 🔥 REMOVIDO: isso estava quebrando o container
+    # volumes:
+    #   - /app/node_modules
 
 volumes:
   pgdata:

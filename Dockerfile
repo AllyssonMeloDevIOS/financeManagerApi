@@ -1,3 +1,4 @@
+ARG CACHEBUST=1
 FROM node:18-alpine
 
 WORKDIR /app
@@ -11,7 +12,7 @@ RUN npm run build
 
 RUN apk add --no-cache postgresql-client
 
-COPY entrypoint.sh .
-RUN chmod +x entrypoint.sh
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
-CMD ["./entrypoint.sh"]
+ENTRYPOINT [ "sh", "/usr/local/bin/entrypoint.sh" ]
