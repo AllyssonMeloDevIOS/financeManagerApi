@@ -11,7 +11,7 @@ RUN npm run build
 
 RUN apk add --no-cache postgresql-client
 
-COPY entrypoint.sh ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
 
 CMD ["./entrypoint.sh"]
