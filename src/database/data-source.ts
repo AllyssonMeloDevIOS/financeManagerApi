@@ -15,7 +15,8 @@ const baseDbConfig = {
   synchronize: false, // Em produção, geralmente false. Você roda migrations.
   logging: process.env.NODE_ENV === 'development', // Loga queries em dev
   entities: [User, Category, Transaction],
-  migrations: [path.join(__dirname, 'migrations', '*.js')],
+  //migrations: [path.join(__dirname, 'migrations', '*.js')],
+  migrations: ["dist/database/migrations/*.js"],
   migrationsTableName: 'migrations'
 };
 
