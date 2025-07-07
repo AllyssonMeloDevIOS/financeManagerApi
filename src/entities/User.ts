@@ -3,7 +3,8 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  OneToMany
+  OneToMany,
+  UpdateDateColumn
 } from 'typeorm';
 import { IsNotEmpty, IsEmail, MinLength, MaxLength } from 'class-validator';
 import { Transaction } from './Transaction';
@@ -38,6 +39,6 @@ export class User {
   @CreateDateColumn({ name: 'created_at' })
   createdAt!: Date;
 
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt!: Date;
 }

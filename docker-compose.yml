@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: finance_pgsql
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - finance-network
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin4_finance
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${PGADMIN_PORT}:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - finance-network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: finance_api
+    restart: always
+    command: /usr/local/bin/entrypoint.sh
+    env_file:
+      - .env
+    ports:
+      - "${APP_PORT}:3000"
+    depends_on:
+      - postgres
+    networks:
+      - finance-network
+    # 🔥 REMOVIDO: isso estava quebrando o container
+    # volumes:
+    #   - /app/node_modules
+
+volumes:
+  pgdata:
+  pgadmin_data:
+
+networks:
+  finance-network:

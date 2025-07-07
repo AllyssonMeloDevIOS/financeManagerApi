@@ -8,17 +8,17 @@ import {
 
 export class CreateTransactionDTO {
     @IsNotEmpty({ message: 'O título é obrigatório'})
-    title: string;
+    title!: string;
 
     @IsNumber ({}, { message: 'O valor deve ser um número'})
-    value: number;
+    value!: number;
 
     @IsIn(['receita','despesa'], { message: 'O tipo deve ser receita ou despesa ' })
-    type: 'receita' | 'despesa';
+    type!: 'receita' | 'despesa';
 
     @IsUUID('4', { message: 'ID da categoria inválido'})
-    categoryId: string;
+    categoryId!: string;
 
     @IsDateString({}, {message: 'A data da transação é inválida'})
-    date: string;
+    date!: string;
     }

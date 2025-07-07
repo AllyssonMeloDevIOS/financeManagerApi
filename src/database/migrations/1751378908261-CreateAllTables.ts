@@ -1,9 +1,14 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class CreateAllTables1751378908261 implements MigrationInterface {
-    name = 'CreateAllTables1751378908261'
+export default class CreateAllTables1751378908261 implements MigrationInterface {
+    name = 'CreateAllTables1751378908261';
+
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+        console.log("🚧 Rodando migration CreateAllTables...");
+
+        await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
+
         await queryRunner.query(`
             CREATE TABLE "category" (
                 "id" uuid NOT NULL DEFAULT uuid_generate_v4(),

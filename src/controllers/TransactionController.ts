@@ -7,6 +7,8 @@ import { TransactionService } from '../services/TransactionService';
 export class TransactionController {
   constructor(private transactionService = new TransactionService()) {
     this.create = this.create.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   async create(req: Request, res: Response) {
@@ -45,25 +47,25 @@ export class TransactionController {
   async update(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const userId = req.user.id;
+      const userId = req.user!.id;
       const data = req.body;
 
-      const updated = await TransactionService.updateTransaction(id, userId, data);
+      const updated = await this.transactionService.updateTransaction(id, userId, data);
       return res.json(updated);
-    } catch (err) {
-      return res.status(500).json({ error: 'Erro ao atualizar transação' });
+    } catch (err: any) {
+      return res.status(500).json({ error: 'Erro ao atualizar transação', details: err.message });
     }
   }
 
   async delete(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const userId = req.user.id;
+      const userId = req.user!.id;
 
-      await TransactionService.deleteTransaction(id, userId);
+      await this.transactionService.deleteTransaction(id, userId);
       return res.status(204).send();
-    } catch (err) {
-      return res.status(500).json({ error: 'Erro ao deletar transação' });
+    } catch (err: any) {
+      return res.status(500).json({ error: 'Erro ao deletar transação', details: err.message });
     }
   }
 

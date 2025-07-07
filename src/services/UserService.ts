@@ -108,8 +108,10 @@ export class UserService {
   }
 
   verifyRefreshToken(token: string) {
-    return jwt.verify(token, authConfig.refreshSecret) as { id: string };
-  }
+      // Forçando o tipo para string diretamente no jwt.verify
+      const refreshSecretKey: string = authConfig.refreshSecret;
+      return jwt.verify(token, refreshSecretKey) as { id: string };
+    }
 
   async getUserById(id: string) {
     return this.userRepository.findOne({

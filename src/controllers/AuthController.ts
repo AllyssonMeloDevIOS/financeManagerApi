@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { UserService } from '../services/UserServiceFixed';
+import { UserService } from '../services/UserService';
 import { validate } from 'class-validator';
 import { plainToInstance } from 'class-transformer';
 import bcrypt from 'bcrypt';
@@ -13,6 +13,8 @@ export class AuthController {
         this.listUsers = this.listUsers.bind(this);
         this.refreshToken = this.refreshToken.bind(this);
         this.getProfile = this.getProfile.bind(this);
+        this.update = this.update.bind(this);
+        this.delete = this.delete.bind(this);
   }
 
   async register(req: Request, res: Response) {
@@ -149,21 +151,21 @@ export class AuthController {
           token: newToken,
           refreshToken: newRefreshToken
         });
-      } catch (error) {
+      } catch (error: any) {
         console.error('Refresh token error:', error);
         return res.status(401).json({ error: 'Refresh token inválido ou expirado' });
       }
     }
 async getProfile(req: Request, res: Response) {
     try {
-        const user = await this.userService.getUserById(req.user.id);
+        const user = await this.userService.getUserById(req.user!.id);
 
         if (!user) {
             return res.status(404).json({ error: 'Usuário não encontrado' });
 
             }
         return res.json(user);
-        } catch (error) {
+        } catch (error: any) {
             console.error('[PROFILE ERROR]', error);
             return res.status(500).json({ error: 'Erro ao carregar perfil' })
 
@@ -175,7 +177,7 @@ async update(req: Request, res: Response) {
   try {
     const { name, email, password } = req.body;
 
-    const user = await this.userService.updateUser(req.user.id, { name, email, password });
+    const user = await this.userService.updateUser(req.user!.id, { name, email, password });
 
     return res.json({
       id: user.id,
@@ -191,7 +193,7 @@ async update(req: Request, res: Response) {
 
 async delete(req: Request, res: Response) {
   try {
-    await this.userService.deleteUser(req.user.id);
+    await this.userService.deleteUser(req.user!.id);
     return res.status(204).send();
   } catch (error: any) {
     console.error('[DELETE USER ERROR]', error);
