@@ -1,5 +1,4 @@
-# docker-compose.yml (na raiz do seu projeto)
-version: '3.8' # Pode remover esta linha se quiser para evitar o warning, mas não é um erro.
+version: '3.8'
 
 services:
   postgres:
@@ -7,59 +6,55 @@ services:
     container_name: finance_pgsql
     restart: always
     env_file:
-      - .env # Carrega as variáveis do .env para este serviço
+      - .env
     ports:
-      - "${DB_PORT}:5432" # Mapeia a porta do container para a porta do host definida no .env
+      - "${DB_PORT}:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data # Persiste os dados do banco
+      - pgdata:/var/lib/postgresql/data
     networks:
-      - finance-network # Conecta ao serviço de rede
-#    command: postgres -c 'log_connections=on' -c 'log_disconnections=on' -c 'log_hostname=on'
-    # Logs detalhados do Postgres
-    environment: # Variáveis de ambiente para o PostgreSQL
+      - finance-network
+    environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME} # IMPORTANTE: Cria o banco de dados com o nome do seu .env
-        # POSTGRES_HOST_AUTH_METHOD: trust # <--- REMOVA/COMENTE ESTA LINHA SE JÁ ESTÁ CONECTANDO COM SENHA.
-      #     Deixaremos o padrão que pede senha.
+      POSTGRES_DB: ${DB_NAME}
 
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: pgadmin4_finance
     restart: always
     env_file:
-      - .env # Carrega as variáveis do .env para este serviço
-    ports:
-      - "${PGADMIN_PORT}:80" # Mapeia a porta do container para a porta do host definida no .env
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin # Persiste os dados do PgAdmin
-    depends_on:
-      - postgres # Garante que o Postgres suba antes
-    networks:
-      - finance-network # Conecta ao serviço de rede
-
-  api: # Serviço da sua API Node.js
-    build:
-      context: . # Onde o Dockerfile está (na raiz do projeto)
-      dockerfile: Dockerfile # O nome do seu Dockerfile
-    container_name: finance_api
-    restart: always
-    env_file: # <--- IMPORTANTE: Carrega as variáveis do .env para este serviço da API
       - .env
     ports:
-      - "${APP_PORT}:3000" # Mapeia a porta da sua API (3000 interna) para a porta do host
-    depends_on:
-      - postgres # Garante que o Postgres suba antes da API
-    networks:
-      - finance-network # Conecta ao serviço de rede
+      - "${PGADMIN_PORT}:80"
     volumes:
-      - .:/app # Monta o código fonte do host para o container (para desenvolvimento/hot-reloading)
-      - /app/node_modules # Garante que node_modules dentro do container não seja sobrescrito pelo host
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - finance-network
 
-# ESTAS SEÇÕES ABAIXO PRECISAM ESTAR ALINHADAS NO MESMO NÍVEL QUE 'version' E 'services'
-volumes: # <-- VOLUMES PARA PERSISTÊNCIA DE DADOS
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: finance_api
+    restart: always
+    command: ./entrypoint.sh # executa o script que compila, roda migrations e inicia o servidor
+    env_file:
+      - .env
+    ports:
+      - "${APP_PORT}:3000"
+    depends_on:
+      - postgres
+    networks:
+      - finance-network
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+volumes:
   pgdata:
   pgadmin_data:
 
-networks: # <-- REDE PARA COMUNICAÇÃO ENTRE OS SERVIÇOS
+networks:
   finance-network:
