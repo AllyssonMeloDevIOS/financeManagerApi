@@ -29,37 +29,41 @@ cd financeManagerApi
 ```
 
 ### 2. Instale as dependencias
+```bash
 npm install
-
+```
 ### 3. Crie um arquivo .env na raiz com base no .env.example Exemplo:
+```bash
+DB_HOST=postgres
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=sua_Senha
+DB_NAME=finance
 
-- DB_HOST=postgres
-- DB_PORT=5432
-- DB_USER=postgres
-- DB_PASSWORD=sua_Senha
-- DB_NAME=finance
+APP_PORT=3000
 
-- APP_PORT=3000
+PGADMIN_PORT=5050
+PGADMIN_DEFAULT_EMAIL=allysson@gmail.com
+PGADMIN_DEFAULT_PASSWORD=sua_senha
 
-- PGADMIN_PORT=5050
-- PGADMIN_DEFAULT_EMAIL=allysson@gmail.com
-- PGADMIN_DEFAULT_PASSWORD=sua_senha
-
-- JWT_SECRET=seu_jwt_secret
-- JWT_REFRESH_SECRET=seu_jwt_refresh_secret
-- JWT_EXPIRES_IN=1d
-- JWT_REFRESH_EXPIRES_IN=7d
+JWT_SECRET=seu_jwt_secret
+JWT_REFRESH_SECRET=seu_jwt_refresh_secret
+JWT_EXPIRES_IN=1d
+JWT_REFRESH_EXPIRES_IN=7d
+```
 
  💡 Gere chaves seguras com: ->>> node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 
 ⚠️ Certifique-se de que o PostgreSQL está rodando e que o banco foi criado.
 
 ### 4. Build do projeto
+```bash
 npm run build
-
-### 5.Suba os containers com Docker
+```
+### 5. Suba os containers com Docker
+```bash
 docker-compose up --build
-
+```
 Isso irá:
 
 - Iniciar o PostgreSQL e o pgAdmin;
@@ -74,7 +78,6 @@ A API estará disponível em:
 http://localhost:3000
 
 ### 🧪 Endpoints disponíveis
-Base URL: http://localhost:3000/api
 
 **Base URL**: http://localhost:3000/api
 
@@ -90,16 +93,17 @@ Base URL: http://localhost:3000/api
 Header:
 Authorization: Bearer SEU_TOKEN_JWT
 
-- Requisitos
+## ⚙️ Requisitos
 Node.js 18+ ou 20+
 
 PostgreSQL 13+
+
 Docker
 
 ### 🐘 Acesso ao banco via pgAdmin
 Acesse: http://localhost:5050
 
-- Email: allysso@gmail.com
+- Email: allysson@gmail.com
 
 - Senha: Sua_senha
 ___
