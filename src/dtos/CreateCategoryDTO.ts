@@ -1,3 +1,4 @@
+// src/dtos/CreateCategoryDTO.ts
 import { IsNotEmpty } from 'class-validator';
 
 export class CreateCategoryDTO {

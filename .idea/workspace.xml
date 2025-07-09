@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fd4680b-e4cd-4859-b617-a5ac8d69e4eb" name="Changes" comment="" />
+    <list default="true" id="7fd4680b-e4cd-4859-b617-a5ac8d69e4eb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/docs/swaggerSchemas.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/swagger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/swagger.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/CreateCategoryDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/CreateCategoryDTO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/CreateTransactionDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/CreateTransactionDTO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dtos/LoginDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/dtos/LoginDTO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Transaction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Transaction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/authRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/authRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/categoryRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/categoryRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/transactionRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/transactionRoutes.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +60,14 @@
     <setting file="file://$PROJECT_DIR$/node_modules/@types/node/assert/strict.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package-lock.json" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="showPreview" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -61,7 +82,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Docker&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/swagger-api-docs&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -131,6 +152,8 @@
       <workItem from="1751902702883" duration="1275000" />
       <workItem from="1751911394965" duration="57000" />
       <workItem from="1751912368529" duration="3642000" />
+      <workItem from="1751973911704" duration="4409000" />
+      <workItem from="1752077272340" duration="5307000" />
     </task>
     <servers />
   </component>

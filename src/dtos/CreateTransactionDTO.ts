@@ -1,10 +1,11 @@
+// src/dtos/CreateTransactionDTO.ts
 import {
     IsNotEmpty,
     IsUUID,
     IsIn,
     IsNumber,
     IsDateString
-    } from 'class-validator';
+} from 'class-validator';
 
 export class CreateTransactionDTO {
     @IsNotEmpty({ message: 'O título é obrigatório'})
@@ -21,4 +22,4 @@ export class CreateTransactionDTO {
 
     @IsDateString({}, {message: 'A data da transação é inválida'})
     date!: string;
-    }
+}

@@ -1,4 +1,6 @@
+// src/dtos/LoginDTO.ts
 import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
+
 
 export class LoginDTO {
   @IsEmail({}, { message: 'Email inválido' })
