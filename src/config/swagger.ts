@@ -19,11 +19,6 @@ const swaggerOptions = {
                 url: 'http://localhost:3000/api', // URL base da sua API em desenvolvimento
                 description: 'Servidor de Desenvolvimento Local',
             },
-            // Você pode adicionar mais servidores para produção/homologação aqui
-            // {
-            //   url: 'https://sua-api-em-producao.com/api',
-            //   description: 'Servidor de Produção',
-            // },
         ],
         components: {
             securitySchemes: {
@@ -35,7 +30,7 @@ const swaggerOptions = {
                 }
             }
         },
-        security: [ // Segurança global para todas as rotas (pode ser sobrescrito por rota)
+        security: [
             {
                 bearerAuth: []
             }
@@ -43,12 +38,14 @@ const swaggerOptions = {
     },
     // Caminhos para os arquivos onde o Swagger encontrará as definições da API
     apis: [
-        path.resolve(__dirname, '../routes/*.ts'), // Rotas da API
-        path.resolve(__dirname, '../controllers/*.ts'), // Controladores
-        path.resolve(__dirname, '../dtos/*.ts'),      // DTOs
-        path.resolve(__dirname, '../entities/*.ts'),  // Entidades (se tiver Schemas nelas)
-        // path.resolve(__dirname, '..', 'dist', 'routes', '*.js'), // Para builds JS
-        // path.resolve(__dirname, '..', 'dist', 'controllers', '*.js'), // Para builds JS
+        // APONTE PARA OS ARQUIVOS .JS DENTRO DA PASTA 'dist' RELATIVO À ONDE O ARQUIVO SWAGGER.JS ESTARÁ
+        // Quando compilado, swagger.js estará em dist/config/swagger.js
+        // Então, para acessar dist/routes, precisamos de '../../routes/*.js'
+        path.resolve(__dirname, '../../dist/routes/*.js'),       // <-- Mude para .js e ajuste o caminho
+        path.resolve(__dirname, '../../dist/controllers/*.js'),  // <-- Mude para .js e ajuste o caminho
+        path.resolve(__dirname, '../../dist/dtos/*.js'),         // <-- Mude para .js e ajuste o caminho
+        path.resolve(__dirname, '../../dist/entities/*.js'),     // <-- Mude para .js e ajuste o caminho
+        path.resolve(__dirname, '../../dist/docs/*.js'),
     ],
 };
 
