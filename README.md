@@ -77,7 +77,7 @@ Isso irá:
 A API estará disponível em:
 http://localhost:3000
 
-### 🧪 Endpoints disponíveis
+## 🧪 Endpoints disponíveis
 
 **Base URL**: http://localhost:3000/api
 
@@ -93,6 +93,13 @@ http://localhost:3000
 Header:
 Authorization: Bearer SEU_TOKEN_JWT
 
+## 📚 Documentação da API
+Você pode consultar a documentação interativa da API Swagger em:
+
+**URL**: http://localhost:3000/api-docs/#/
+
+Lá você encontra detalhes de todas as rotas, parâmetros e exemplos de request/response.
+
 ## ⚙️ Requisitos
 Node.js 18+ ou 20+
 
@@ -100,7 +107,7 @@ PostgreSQL 13+
 
 Docker
 
-### 🐘 Acesso ao banco via pgAdmin
+## 🐘 Acesso ao banco via pgAdmin
 Acesse: http://localhost:5050
 
 - Email: allysson@gmail.com
@@ -114,25 +121,25 @@ ___
 
 - Senha: Sua_senha
 
-### 🧼 Resetar ambiente Docker (caso algo quebre)
+## 🧼 Resetar ambiente Docker (caso algo quebre)
 ```bash
 docker-compose down -v --remove-orphans
 docker image prune -a
 docker-compose up --build
 ```
 
-### 🧠 TODOs futuros
+## 🧠 TODOs futuros
 - ✅ Autenticação JWT (access + refresh)
 
 - ✅ Estrutura em camadas (DTOs, services, controllers)
 
 - ✅ Migrations com TypeORM
 
+- ✅ Documentação com Swagger
+
 - 🔜 Testes automatizados com Jest
 
 - 🔜 Deploy na nuvem (Render, Railway, etc)
 
-- 🔜 Documentação com Swagger
-
-### 🧐 Contribuindo
+## 🧐 Contribuindo
 Pull requests são bem-vindos! Se quiser sugerir melhorias, abra uma issue ou envie um PR. 💡
