@@ -36,12 +36,14 @@ export class AuthController {
         password
       });
 
-      return res.status(201).json({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        createdAt: user.createdAt
-      });
+        const token = this.userService.generateToken(user);
+        const refreshToken = this.userService.generateRefreshToken(user);
+
+        return res.status(201).json({
+            accessToken: token,
+            refreshToken
+        });
+
     } catch (error: any) {
       console.error('Registration error:', error);
       const status = error.code === '23505' ? 409 : 500;
